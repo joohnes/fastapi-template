@@ -1,0 +1,23 @@
+version: "3"
+services:
+
+  backend:
+    container_name: DankyShop
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    # depends_on:
+    #   - db
+    network_mode: "host"
+    # ports:
+    #   - "7000:7000"
+    restart: always
+    volumes:
+      - ./backend/app:/app
+    environment:
+      - DATABASE_URL=postgresql://postgres:wiktor@localhost/turmoo
+      - BACKEND_CORS_ORIGINS=["http://localhost:3000","https://backend.turmoo.pl/"]
+
+
+volumes:
+  app-db-data:

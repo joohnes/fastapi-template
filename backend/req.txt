@@ -1,0 +1,4 @@
+alembic==1.9.1
+fastapi
+uvicorn
+python-dotenv==0.21.0
